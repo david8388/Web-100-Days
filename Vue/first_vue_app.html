@@ -5,13 +5,19 @@
   </head>
   <body>
     <div id="app">
-      {{ title }}
+      <input type="text" v-on:input="changeTitle" />
+      <p>{{ title }}</p>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
           title: "HelloWorld"
+        },
+        methods: {
+          changeTitle: function(event) {
+            this.title = event.target.value;
+          }
         }
       });
     </script>
