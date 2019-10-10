@@ -12,13 +12,18 @@
       <p v-once>
         {{ title }} - Title will not change after page is load completed.
       </p>
+      <hr />
+      <p>{{ finishedLink }} - only renders text by using interpolation.</p>
+      <p>The following paragraph will render html by using v-html</p>
+      <p v-html="finishedLink"></p>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
           title: "HelloWorld",
-          link: "https://github.com/"
+          link: "https://github.com/",
+          finishedLink: '<a href="https://google.com">Google</a>'
         },
         methods: {
           changeTitle: function(event) {
