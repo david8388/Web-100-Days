@@ -9,6 +9,9 @@
       <p>{{ title }}</p>
       <p>{{ getTitle() }}</p>
       <p>{{ sayHello() }} - <a v-bind:href="link">Github</a></p>
+      <p v-once>
+        {{ title }} - Title will not change after page is load completed.
+      </p>
     </div>
     <script>
       new Vue({
