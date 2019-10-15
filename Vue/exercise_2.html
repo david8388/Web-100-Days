@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="exercise">
+      <div>
+        <button v-on:click="AlertMe">Show Alert</button>
+      </div>
+      <div>
+        <input type="text" v-on:keydown="TextMe($event)" />
+        <p>{{ value }}</p>
+      </div>
+      <div>
+        <input type="text" v-on:keydown.enter="TextMeIfKeyEnter($event)" />
+        <p>{{ value }}</p>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#exercise",
+        data: {
+          value: ""
+        },
+        methods: {
+          AlertMe: function() {
+            alert("AlertMe!!!");
+          },
+          TextMe: function(event) {
+            this.value = event.target.value;
+          },
+          TextMeIfKeyEnter: function(event) {
+            this.value = event.target.value;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
