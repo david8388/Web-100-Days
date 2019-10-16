@@ -3,12 +3,16 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
+
   <body>
     <div id="app">
-      <button v-on:click="increase(2, $event)">Click me</button>
+      <button v-on:click="increase(2, $event)">Click Me</button>
+      <button v-on:click="counter++">Click Me</button>
       <p>{{ counter }}</p>
+      <p>{{ counter * 2 }}</p>
+      <p>{{ counter * 2 > 10 ? "Greater than 10" : "Smaller than 10" }}</p>
       <p v-on:mousemove="updateCoordinates">
-        Cordinates: {{ x }} / {{ y }} -
+        Cordinates: {{ x }} / {{ y }}
         <span v-on:mousemove.stop.prevent>DEAD SPOT</span>
       </p>
       <input type="text" v-on:keyup.enter.space="alertMe" />
@@ -23,9 +27,7 @@
         },
         methods: {
           increase: function(step, event) {
-            // this.counter++;
-            debugger;
-            this.counter += 2;
+            this.counter += step;
             console.log(event);
           },
           updateCoordinates: function(event) {
