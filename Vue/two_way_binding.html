@@ -7,12 +7,15 @@
     <div id="app">
       <input type="text" v-model="name" />
       <p>{{ name }}</p>
+      <input type="number" v-model="age" />
+      <p>{{ age }}</p>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          name: "David"
+          name: "David",
+          age: 25
         }
       });
     </script>
