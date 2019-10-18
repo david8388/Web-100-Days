@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <button v-on:click="increase">Increase</button>
+      <button v-on:click="decrease">Decrease</button> 
+      <p>Result: {{ result }}</p>-->
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Increase Second</button>
+      <p>Counter: {{ counter }} | {{ secondCounter }}</p>
+      <p>Result: {{ result() }} | {{ output }}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          counter: 0,
+          secondCounter: 0
+          // result: ""
+        },
+        computed: {
+          output: function() {
+            console.log("computed");
+            return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          }
+        },
+        methods: {
+          increase: function() {
+            this.counter++;
+            this.result =
+              this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          },
+          decrease: function() {
+            this.counter--;
+            this.result =
+              this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          },
+          result() {
+            console.log("function");
+            return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
