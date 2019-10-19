@@ -25,7 +25,17 @@
         computed: {
           output: function() {
             console.log("computed");
+            // need to be synchronous
             return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+          }
+        },
+        watch: {
+          counter: function() {
+            // if use watch, it can be asynchronous
+            var vm = this;
+            setTimeout(function() {
+              vm.counter = 0;
+            }, 2000);
           }
         },
         methods: {
