@@ -9,12 +9,17 @@
       <p v-else>Now you see me.</p>
       <p>Do you also see me?</p>
       <button @click="show = !show">Switch</button>
+      <p v-if="type === 'A'">I'm A</p>
+      <p v-else-if="type === 'B'">I'm B</p>
+      <p v-else-if="type === 'C'">I'm C</p>
+      <p v-else>Not A/B/C</p>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          show: true
+          show: true,
+          type: "C"
         }
       });
     </script>
