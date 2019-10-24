@@ -7,7 +7,7 @@
     <div id="app">
       <p v-if="show">You can see me.<span>Hello</span></p>
       <p v-else>Now you see me.</p>
-      <p>Do you also see me?</p>
+      <p v-show="show">Do you also see me?(using v-show)</p>
       <button @click="show = !show">Switch</button>
       <template v-if="show">
         <h1>Heading</h1>
