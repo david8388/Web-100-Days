@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      #effect {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+
+      .highlight {
+        background-color: red;
+        width: 200px;
+      }
+
+      .shrink {
+        background-color: gray;
+        width: 500px;
+      }
+
+      .bg {
+        background-color: peru;
+      }
+      .font {
+        font-size: 12px;
+      }
+
+      .pink {
+        background-color: pink;
+      }
+
+      .orange {
+        background-color: orange;
+      }
+
+      .visible {
+        width: 100px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="exercise">
+      <div>
+        <button @click="startEffect">Start Effect</button>
+        <div
+          id="effect"
+          :class="{highlight: isHighlight, shrink: !isHighlight}"
+        ></div>
+      </div>
+      <div :class="['bg', 'font']">I got no classes!</div>
+      <div>
+        <input type="text" v-model="color" />
+        <div :class="color">Hiiii</div>
+      </div>
+      <div>
+        <input type="text" v-model="styling" />
+        <input type="text" v-model="isEnable" />
+        <div :class="[{visible: isEnable},styling]">Hey</div>
+      </div>
+      <div>
+        <input type="text" v-model="height" />
+        <div :style="{height: height + 'px', backgroundColor: 'beige'}">
+          Hiiii
+        </div>
+      </div>
+      <div>
+        <button @click="startProgress">Start Progress</button>
+        <div
+          :style="{width: width + 'px', height: '10px',backgroundColor: 'beige'}"
+        ></div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#exercise",
+        data: {
+          color: "orange",
+          styling: "",
+          height: 100,
+          width: 0,
+          isEnable: true,
+          isHighlight: true
+        },
+        methods: {
+          startEffect: function() {
+            var vm = this;
+            // setTimeout(() => {
+            //   vm.isHighlight = !vm.isHighlight;
+            // }, 1000);
+            setInterval(() => {
+              vm.isHighlight = !vm.isHighlight;
+            }, 1000);
+          },
+          startProgress: function() {
+            var vm = this;
+            setInterval(() => {
+              vm.width += 20;
+            }, 1000);
+            // setTimeout(() => {
+            //   vm.width += 20;
+            //   vm.startProgress();
+            // }, 1000);
+          }
+        }
+        // computed: {
+        //   bg: function() {
+        //     return {
+        //       bg: true
+        //     };
+        //   },
+        //   font: function() {
+        //     return {
+        //       font: true
+        //     };
+        //   }
+        // }
+      });
+    </script>
+  </body>
+</html>
