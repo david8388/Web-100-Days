@@ -9,6 +9,10 @@
       <p v-else>Now you see me.</p>
       <p>Do you also see me?</p>
       <button @click="show = !show">Switch</button>
+      <template v-if="show">
+        <h1>Heading</h1>
+        <p>Inside a template</p>
+      </template>
       <p v-if="type === 'A'">I'm A</p>
       <p v-else-if="type === 'B'">I'm B</p>
       <p v-else-if="type === 'C'">I'm C</p>
