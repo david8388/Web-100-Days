@@ -10,6 +10,16 @@
           {{ ingredient }} ({{ index }})
         </li>
       </ul>
+      <hr />
+      <ul>
+        <!-- <li v-for="person in persons">{{ person.name }}</li> -->
+        <li v-for="person in persons">
+          <span v-for="(value, key, index) in person"
+            >{{ key }}:{{ value }} ({{ index }})</span
+          >
+        </li>
+      </ul>
+      <hr />
       <template v-for="(ingredient, index) in ingredients">
         <h1>{{ ingredient }}</h1>
         <p>{{ index }}</p>
@@ -19,7 +29,11 @@
       new Vue({
         el: "#app",
         data: {
-          ingredients: ["meat", "fruit", "cookies"]
+          ingredients: ["meat", "fruit", "cookies"],
+          persons: [
+            { name: "David", age: 25, color: "yellow" },
+            { name: "Takumi", age: 25, color: "green" }
+          ]
         }
       });
     </script>
