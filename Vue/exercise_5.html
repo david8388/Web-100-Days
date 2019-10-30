@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="exercise">
+      <div>
+        <button @click="toggle">Toggle</button>
+        <p v-if="isVisible">You either see me ...</p>
+        <p v-else>... or me</p>
+        <p v-show="isVisible">You either see me ...</p>
+        <p v-show="!isVisible">... or me</p>
+      </div>
+      <ul>
+        <li v-for="(value, index) in league">{{ value }}- ({{ index }})</li>
+      </ul>
+      <ul>
+        <li v-for="(value, key, index) in book">
+          {{ key }}:{{ value }} ({{ index }})
+        </li>
+      </ul>
+      <ul>
+        <li v-for="(value, key, index) in obj">
+          <template v-if="Array.isArray(value)">
+            <div v-for="el in value">{{ el }}</div>
+          </template>
+          <template v-else>{{ value }}</template>
+        </li>
+      </ul>
+    </div>
+    <script>
+      new Vue({
+        el: "#exercise",
+        data: {
+          isVisible: true,
+          league: ["MLB", "NBA", "NFL"],
+          book: { title: "Lord of Rings", author: "J.R.R Tolkiens", book: "3" },
+          obj: { name: "TESTOBJECT", data: [1.67, 1.33, 0.98, 2.21] }
+        },
+        methods: {
+          toggle: function() {
+            this.isVisible = !this.isVisible;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
