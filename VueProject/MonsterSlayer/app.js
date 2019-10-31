@@ -36,7 +36,12 @@ new Vue({
 
       this.monsterAttacks();
     },
-    giveUp: function() {},
+    giveUp: function() {
+      if (confirm("You lost! New Game?")) {
+        this.startGame();
+      }
+      this.gameIsRunning = false;
+    },
     monsterAttacks: function() {
       this.playerHealth -= this.calculateDamage(3, 12);
       this.checkWin();
