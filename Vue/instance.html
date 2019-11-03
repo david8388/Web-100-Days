@@ -11,9 +11,10 @@
     </div>
     <div id="app2">
       <h1>{{ title }}</h1>
+      <button @click="onChanged">Change something in Vue 1</button>
     </div>
     <script>
-      new Vue({
+      var vm1 = new Vue({
         el: "#app",
         data: {
           title: "The VueJS Instance",
@@ -40,10 +41,19 @@
         }
       });
 
-      new Vue({
+      setTimeout(() => {
+        vm1.title = "Changed by timer";
+      }, 3000);
+
+      var vm2 = new Vue({
         el: "#app2",
         data: {
           title: "The second Instance"
+        },
+        methods: {
+          onChanged: function() {
+            vm1.title = "Changed!!";
+          }
         }
       });
     </script>
