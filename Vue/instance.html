@@ -5,8 +5,8 @@
   </head>
   <body>
     <div id="app">
-      <h1>{{ title }}</h1>
-      <button @click="show">Show paragraph</button>
+      <h1 ref="heading">{{ title }}</h1>
+      <button @click="show" ref="myButton">Show paragraph</button>
       <p v-if="showParagraph">This is not always visible</p>
     </div>
     <div id="app2">
@@ -14,16 +14,19 @@
       <button @click="onChanged">Change something in Vue 1</button>
     </div>
     <script>
+      var data = {
+        title: "The VueJS Instance",
+        showParagraph: false
+      };
+
       var vm1 = new Vue({
         el: "#app",
-        data: {
-          title: "The VueJS Instance",
-          showParagraph: false
-        },
+        data: data,
         methods: {
           show: function() {
             this.showParagraph = true;
             this.updateTitle("The VueJS Instance(updated)");
+            this.$refs.myButton.innerText = "Test";
           },
           updateTitle: function(title) {
             this.title = title;
@@ -40,6 +43,9 @@
           }
         }
       });
+
+      vm1.$refs.heading.innerText = "Something else";
+      console.log(vm1.$el, vm1.$data, vm1.$data === data);
 
       setTimeout(() => {
         vm1.title = "Changed by timer";
