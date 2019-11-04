@@ -13,6 +13,7 @@
       <h1>{{ title }}</h1>
       <button @click="onChanged">Change something in Vue 1</button>
     </div>
+    <div id="app3"></div>
     <script>
       var data = {
         title: "The VueJS Instance",
@@ -20,7 +21,7 @@
       };
 
       var vm1 = new Vue({
-        el: "#app",
+        //el: "#app",
         data: data,
         methods: {
           show: function() {
@@ -44,6 +45,7 @@
         }
       });
 
+      vm1.$mount("#app");
       vm1.$refs.heading.innerText = "Something else";
       console.log(vm1.$el, vm1.$data, vm1.$data === data);
 
@@ -62,6 +64,14 @@
           }
         }
       });
+
+      var vm3 = new Vue({
+        template: "<h1>Hello!</h1>"
+      });
+
+      //vm3.$mount("#app3");
+      vm3.$mount();
+      document.getElementById("app3").appendChild(vm3.$el);
     </script>
   </body>
 </html>
