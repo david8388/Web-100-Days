@@ -1,5 +1,5 @@
 <template>
-  <p>Server Status: {{ status }}</p>
+  <app-server-status></app-server-status>
 </template>
 
 <script>
