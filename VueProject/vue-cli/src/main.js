@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App";
 import Home from "./Home";
 
-Vue.component("app-server-status", Home);
+Vue.component("app-servers", Home);
 
 new Vue({
   el: "#app",
