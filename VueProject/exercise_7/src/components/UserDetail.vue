@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  props: ['myName'],
+  props: {
+    myName: {
+      type: String,
+      default: 'David'
+    }
+  },
   data: function () {
     return {
       userName: this.myName
