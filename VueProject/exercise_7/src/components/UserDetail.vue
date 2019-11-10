@@ -3,6 +3,7 @@
     <h3>You may view the User Detail here.</h3>
     <p>Many Details</p>
     <p>User Name: {{ names }}</p>
+    <p>User Age: {{ ages }} </p>
     <button @click="resetName">Reset Name</button>
     <button @click="resetFn()">Reset Name</button>
   </div>
@@ -17,11 +18,15 @@ export default {
     },
     resetFn: {
       type: Function
+    },
+    userAge: {
+      type: Number
     }
   },
   data: function () {
     return {
-      userName: this.myName
+      userName: this.myName,
+      age: this.userAge
     }
   },
   methods: {
@@ -34,6 +39,9 @@ export default {
   computed: {
     names: function () {
       return this.userName = this.myName.split('').reverse().join('')
+    },
+    ages: function () {
+      return this.age = this.userAge
     }
   }
 }
