@@ -2,13 +2,23 @@
   <div class="component">
     <h3>You may view the User Detail here.</h3>
     <p>Many Details</p>
-    <p>User Name: {{ myName }}</p>
+    <p>User Name: {{ names }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['myName']
+  props: ['myName'],
+  data: function () {
+    return {
+      userName: this.myName
+    }
+  },
+  computed: {
+    names: function () {
+      return this.userName = this.myName.split('').reverse().join('')
+    }
+  }
 }
 </script>
 
