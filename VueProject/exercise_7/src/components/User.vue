@@ -10,6 +10,7 @@
         <app-user-detail
           :myName="name"
           @nameWasReset="name = $event"
+          :resetFn="resetName"
         >
         </app-user-detail>
       </div>
@@ -37,6 +38,9 @@ export default {
   methods: {
     changeName: function () {
       this.name = "Lily"
+    },
+    resetName: function () {
+      this.name = 'David'
     }
   }
 }
