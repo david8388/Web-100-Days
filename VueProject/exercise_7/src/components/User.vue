@@ -28,6 +28,7 @@
 <script>
 import UserDetail from './UserDetail.vue';
 import UserEdit from './UserEdit.vue';
+import { eventBus } from '../main.js';
 
 export default {
   data: function () {
@@ -43,10 +44,27 @@ export default {
   methods: {
     changeName: function () {
       this.name = "Lily"
+      eventBus.changeName(this.name)
     },
     resetName: function () {
       this.name = 'David'
+      eventBus.changeName(this.name)
+    },
+    setName (name) {
+      this.name = name
+    },
+    setAge (age) {
+      this.age = age
     }
+  },
+  created () {
+    eventBus.$on('ageWasEdited', (age) => {
+      this.setAge(age);
+    })
+
+    eventBus.$on('nameWasReset', (name) => {
+      this.setName(name);
+    })
   }
 }
 

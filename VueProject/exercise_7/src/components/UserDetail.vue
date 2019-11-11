@@ -2,8 +2,8 @@
   <div class="component">
     <h3>You may view the User Detail here.</h3>
     <p>Many Details</p>
-    <p>User Name: {{ names }}</p>
-    <p>User Age: {{ ages }} </p>
+    <p>User Name: {{ userName }}</p>
+    <p>User Age: {{ age }} </p>
     <button @click="resetName">Reset Name</button>
     <button @click="resetFn()">Reset Name</button>
   </div>
@@ -27,29 +27,29 @@ export default {
   },
   data: function () {
     return {
-      userName: this.myName,
+      userName: this.myName.split('').reverse().join(''),
       age: this.userAge
     }
   },
   methods: {
     resetName () {
-      // this.myName = 'David'
       this.userName = 'David';
-      this.$emit('nameWasReset', this.userName)
-    }
-  },
-  computed: {
-    names: function () {
-      return this.userName = this.myName.split('').reverse().join('')
+      eventBus.changeName(this.userName)
     },
-    ages: function () {
-      return this.age = this.userAge
+    setName (name) {
+      this.userName = name.split('').reverse().join('')
+    },
+    setAge (age) {
+      this.age = age
     }
   },
   created () {
-    // event has some a warn error. EventBus should be delete. because props shouldn't mutate.
     eventBus.$on('ageWasEdited', (age) => {
-      this.userAge = age;
+      this.setAge(age);
+    })
+
+    eventBus.$on('nameWasReset', (name) => {
+      this.setName(name);
     })
   }
 }
