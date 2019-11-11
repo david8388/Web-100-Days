@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main.js';
+
 export default {
   props: {
     myName: {
@@ -43,6 +45,12 @@ export default {
     ages: function () {
       return this.age = this.userAge
     }
+  },
+  created () {
+    // event has some a warn error. EventBus should be delete. because props shouldn't mutate.
+    eventBus.$on('ageWasEdited', (age) => {
+      this.userAge = age;
+    })
   }
 }
 </script>
