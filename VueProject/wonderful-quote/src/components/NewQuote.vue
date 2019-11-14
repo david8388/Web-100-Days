@@ -14,6 +14,7 @@
           class="btn btn-primary"
           @click.prevent="createNew"
         >Add Quote</button>
+      </div>
     </form>
   </div>
 </template>
@@ -28,7 +29,8 @@ export default {
   },
   methods: {
     createNew () {
-
+      this.$emit('quoteAdded', this.quote);
+      this.quote = ''
     }
   }
 }
