@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <app-header
+      :quoteCount="quotes.length"
+      :maxQuotes="maxQuotes"
+    ></app-header>
     <app-new-quote @quoteAdded="newQuote"></app-new-quote>
     <app-quote-grid
       :quotes="quotes"
@@ -16,6 +20,7 @@
 <script>
 import NewQuote from './components/NewQuote';
 import QuoteGrid from './components/QuoteGrid';
+import Header from './components/Header';
 
 export default {
   data: function () {
@@ -26,6 +31,9 @@ export default {
   },
   methods: {
     newQuote: function (quote) {
+      if (this.quotes.length >= this.maxQuotes) {
+        return alert('Please delete quote first!')
+      }
       this.quotes.push(quote)
     },
     deleteQuote: function (index) {
@@ -34,7 +42,8 @@ export default {
   },
   components: {
     appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote
+    appNewQuote: NewQuote,
+    appHeader: Header
   }
 }
 </script>
