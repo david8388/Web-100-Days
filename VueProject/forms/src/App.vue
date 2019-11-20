@@ -55,6 +55,7 @@
                 type="checkbox"
                 id="sendmail"
                 value="SendMail"
+                v-model="sendMail"
               /> Send Mail
             </label>
             <label for="sendInfomail">
@@ -62,6 +63,7 @@
                 type="checkbox"
                 id="sendInfomail"
                 value="SendInfoMail"
+                v-model="sendMail"
               />
               Send Infomail
             </label>
@@ -118,7 +120,12 @@
             <p style="white-space:pre">Message:{{ message }}</p>
             <p><strong>Send Mail?</strong></p>
             <ul>
-              <li></li>
+              <li
+                v-for="(item, index) in sendMail"
+                :key="index"
+              >
+                {{ item }}
+              </li>
             </ul>
             <p>Gender:</p>
             <p>Priority:</p>
@@ -139,7 +146,8 @@ export default {
         age: 25,
         password: ''
       },
-      message: 'A new text'
+      message: 'A new text',
+      sendMail: []
     }
   }
 };
