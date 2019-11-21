@@ -77,6 +77,7 @@
               type="radio"
               id="male"
               value="Male"
+              v-model="gender"
             /> Male
           </label>
           <label for="female">
@@ -84,6 +85,7 @@
               type="radio"
               id="female"
               value="Female"
+              v-model="gender"
             /> Female
           </label>
         </div>
@@ -127,7 +129,7 @@
                 {{ item }}
               </li>
             </ul>
-            <p>Gender:</p>
+            <p>Gender: {{ gender }}</p>
             <p>Priority:</p>
             <p>Switched:</p>
           </div>
@@ -147,7 +149,8 @@ export default {
         password: ''
       },
       message: 'A new text',
-      sendMail: []
+      sendMail: [],
+      gender: 'Male',
     }
   }
 };
