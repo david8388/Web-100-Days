@@ -11,7 +11,8 @@
               type="text"
               id="email"
               class="form-control"
-              v-model="userData.email"
+              :value="userData.email"
+              @input="userData.email = $event.target.value"
             />
           </div>
           <div class="form-group">
@@ -124,7 +125,7 @@
             <p>Password:{{ userData.password }}</p>
             <p>Age:{{ userData.age }}</p>
             <p style="white-space:pre">Message:{{ message }}</p>
-            <p><strong>Send Mail?</strong></p>
+            <p><strong>Send Mail?:</strong></p>
             <ul>
               <li
                 v-for="(item, index) in sendMail"
