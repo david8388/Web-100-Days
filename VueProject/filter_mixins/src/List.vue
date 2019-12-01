@@ -14,19 +14,9 @@
 </template>
 
 <script>
+import { fruitMixin } from './fruitMixins.js'
+
 export default {
-  data () {
-    return {
-      fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
-      filterText: ''
-    }
-  },
-  computed: {
-    filteredFruits () {
-      return this.fruits.filter((fruit) => {
-        return fruit.match(this.filterText)
-      })
-    }
-  }
+  mixins: [fruitMixin]
 }
 </script>
