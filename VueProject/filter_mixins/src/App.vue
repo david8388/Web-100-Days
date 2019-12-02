@@ -39,6 +39,9 @@ export default {
   },
   components: {
     appList: List
+  },
+  created () {
+    console.log('Created')
   }
 }
 </script>
