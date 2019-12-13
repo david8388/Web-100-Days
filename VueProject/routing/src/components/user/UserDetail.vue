@@ -16,6 +16,12 @@ export default {
     return {
       link: { name: 'userEdit', params: { id: this.$route.params.id }, query: { locale: 'en', q: 100 }, hash: '#data' }
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    // if not do next(), this component is not loaded
+    if (true) {
+      next()
+    }
   }
 }
 </script>
