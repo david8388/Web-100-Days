@@ -30,6 +30,7 @@ const UserDetail = resolve => {
   }, 'user')
 }
 // LogRocket https://blog.logrocket.com/lazy-loading-in-vue-js/
+// https://router.vuejs.org/guide/advanced/lazy-loading.html#grouping-components-in-the-same-chunk
 /*
 function lazyLoad (view) {
   return () => import(`@/components/user/${view}.vue`)
