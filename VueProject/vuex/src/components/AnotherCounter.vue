@@ -2,11 +2,11 @@
   <div>
     <button
       class="btn btn-primary"
-      @click="increment"
+      @click="asyncIncrement({by: 50, duration: 500})"
     >Increment</button>
     <button
       class="btn btn-primary"
-      @click="decrement"
+      @click="asyncDecrement({by: 50, duration: 500})"
     >Decrement</button>
   </div>
 </template>
@@ -16,8 +16,8 @@ import { mapActions } from 'vuex';
 export default {
   methods: {
     ...mapActions([
-      'increment',
-      'decrement'
+      'asyncIncrement',
+      'asyncDecrement'
     ])
   }
 }
