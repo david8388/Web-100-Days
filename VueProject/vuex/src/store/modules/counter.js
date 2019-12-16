@@ -1,40 +1,42 @@
+import * as types from '../types'
+
 const state = {
   counter: 0
 }
 
 const getters = {
-  doubleCounter: state => {
+  [types.DOUBLE_COUNTER]: state => {
     return state.counter * 2
   },
-  stringCounter: state => {
+  [types.CLICK_COUNTER]: state => {
     return state.counter + ' Clicks'
   },
 }
 
 const mutations = {
-  increment: (state, payload) => {
+  [types.MUTATE_INCREMENT_COUNTER]: (state, payload) => {
     state.counter += payload
   },
-  decrement: (state, payload) => {
+  [types.MUTATE_DECREMENT_COUNTER]: (state, payload) => {
     state.counter -= payload
   }
 }
 
 const actions = {
-  increment: (context, payload) => {
-    context.commit('increment', payload)
+  [types.COUNTER_INCREMENT]: (context, payload) => {
+    context.commit(types.MUTATE_INCREMENT_COUNTER, payload)
   },
-  decrement: (context, payload) => {
-    context.commit('decrement', payload)
+  [types.COUNTER_DECREMENT]: (context, payload) => {
+    context.commit(types.MUTATE_DECREMENT_COUNTER, payload)
   },
-  asyncIncrement: (context, payload) => {
+  [types.COUNTER_INCREMENT_ASYNC]: (context, payload) => {
     setTimeout(() => {
-      context.commit('increment', payload.by)
+      context.commit(types.MUTATE_INCREMENT_COUNTER, payload.by)
     }, payload.duration)
   },
-  asyncDecrement: (context, payload) => {
+  [types.COUNTER_DECREMENT_ASYNC]: (context, payload) => {
     setTimeout(() => {
-      context.commit('decrement', payload.by)
+      context.commit(types.MUTATE_DECREMENT_COUNTER, payload.by)
     }, payload.duration)
   },
 }

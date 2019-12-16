@@ -12,13 +12,15 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
+import * as types from '../store/types'
+
 export default {
   methods: {
-    ...mapMutations([
-      'increment',
-      'decrement'
-    ])
+    ...mapActions({
+      'increment': types.COUNTER_INCREMENT,
+      'decrement': types.COUNTER_DECREMENT
+    })
   }
 }
 </script>
