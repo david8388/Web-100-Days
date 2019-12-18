@@ -13,7 +13,7 @@
         <transition name="fade">
           <div
             class="alert alert-info"
-            v-if="show"
+            v-show="show"
           >This is some info.</div>
         </transition>
         <transition
