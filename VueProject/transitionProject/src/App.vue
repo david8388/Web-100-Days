@@ -35,6 +35,16 @@
             v-if="show"
           >This is some info.</div>
         </transition>
+        <transition
+          appear
+          enter-active-class="animated bounce"
+          leave-active-class="animated shake"
+        >
+          <div
+            class="alert alert-info"
+            v-if="show"
+          >This is some info.</div>
+        </transition>
       </div>
     </div>
   </div>
