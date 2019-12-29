@@ -98,7 +98,7 @@
         <br>
         <transition
           name="fade"
-          mode="out in"
+          mode="out-in"
         >
           <component :is="selectedComponent"></component>
         </transition>
@@ -107,16 +107,19 @@
           class="btn btn-primary"
           @click="addItem"
         >Add Item</button>
+        <br><br>
         <ul class="list-group">
-          <li
-            class="list-group-item"
-            @click="removeItem(index)"
-            v-for="(number, index) in numbers"
-            :key="index"
-            style="cursor: pointer"
-          >
-            {{ number }}
-          </li>
+          <transition-group name="slide">
+            <li
+              class="list-group-item"
+              @click="removeItem(index)"
+              v-for="(number, index) in numbers"
+              :key="index"
+              style="cursor: pointer"
+            >
+              {{ number }}
+            </li>
+          </transition-group>
         </ul>
       </div>
     </div>
@@ -228,6 +231,11 @@ export default {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 1s;
   opacity: 0;
+  position: absolute;
+}
+
+.slide-move {
+  transition: transform 1s;
 }
 
 @keyframes slide-in {
