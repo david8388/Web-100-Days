@@ -83,6 +83,7 @@
           @leave="leave"
           @after-leave="afterLeave"
           @leaveCancelled="leaveCancelled"
+          :css="false"
         >
           <div
             style="width:100px;height:100px; background-color:lightgreen"
@@ -96,7 +97,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       show: true,
       load: false,
@@ -104,30 +105,30 @@ export default {
     }
   },
   methods: {
-    beforeEnter (el) {
+    beforeEnter(el) {
       console.log('beforeEnter')
     },
-    enter (el, done) {
+    enter(el, done) {
       console.log('enter')
       done()
     },
-    afterEnter (el) {
+    afterEnter(el) {
       console.log('afterEnter')
     },
-    enterCancelled (el) {
+    enterCancelled(el) {
       console.log('enter Cancelled')
     },
-    beforeLeave (el) {
+    beforeLeave(el) {
       console.log('beforeLeave')
     },
-    leave (el, done) {
+    leave(el, done) {
       console.log('leave')
       done(el)
     },
-    afterLeave (el) {
+    afterLeave(el) {
       console.log('afterLeave')
     },
-    leaveCancelled (el) {
+    leaveCancelled(el) {
       console.log('leave Cancelled')
     }
   }
