@@ -90,20 +90,39 @@
             v-if="load"
           ></div>
         </transition>
+        <hr>
+        <button
+          class="btn btn-primary"
+          @click="selectedComponent === 'success-alert' ? selectedComponent = 'danger-alert' : selectedComponent = 'success-alert'"
+        >Toggle Component</button>
+        <br>
+        <transition
+          name="fade"
+          mode="out in"
+        >
+          <component :is="selectedComponent"></component>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DangerAlert from './DangerAlert'
+import SuccessAlert from './SuccessAlert'
 export default {
   data() {
     return {
       show: true,
       load: false,
       alertAnimation: 'fade',
-      elementWidth: 100
+      elementWidth: 100,
+      selectedComponent: 'danger-alert'
     }
+  },
+  components: {
+    DangerAlert,
+    SuccessAlert
   },
   methods: {
     beforeEnter(el) {
