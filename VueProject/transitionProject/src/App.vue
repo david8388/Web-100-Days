@@ -102,6 +102,22 @@
         >
           <component :is="selectedComponent"></component>
         </transition>
+        <hr>
+        <button
+          class="btn btn-primary"
+          @click="addItem"
+        >Add Item</button>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            @click="removeItem(index)"
+            v-for="(number, index) in numbers"
+            :key="index"
+            style="cursor: pointer"
+          >
+            {{ number }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -117,7 +133,8 @@ export default {
       load: false,
       alertAnimation: 'fade',
       elementWidth: 100,
-      selectedComponent: 'danger-alert'
+      selectedComponent: 'danger-alert',
+      numbers: [1, 2, 3, 4, 5]
     }
   },
   components: {
@@ -171,7 +188,14 @@ export default {
     },
     leaveCancelled(el) {
       console.log('leave Cancelled')
-    }
+    },
+    addItem() {
+      const pos = Math.floor(Math.random() * this.numbers.length)
+      this.numbers.splice(pos, 0, this.numbers.length)
+    },
+    removeItem(index) {
+      this.numbers.splice(index, 1)
+    },
   }
 }
 </script>
