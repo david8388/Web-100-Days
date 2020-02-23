@@ -4,24 +4,24 @@
     <title>Register</title>
 </head>
 <body>
-    <form>
-        First Name: <input type="text"><br>
-        Last Name: <input type="text"><br>
-        Email:<input type="email" required><br>
-        Password:<input type="password" minlength="5"><br>
-        Birthday: <input type="date"><br>
+    <form method="post">
+        First Name: <input type="text" name="firstname"><br>
+        Last Name: <input type="text" name="lastname"><br>
+        Email:<input type="email" required name="email"><br>
+        Password:<input type="password" minlength="5" name="password"><br>
+        Birthday: <input type="date" name="birthday"><br>
         Gender: <br>
-        <input type="radio" name="gender">Male<br>
-        <input type="radio" name="gender">Female<br>
-        <input type="radio" name="gender">other<br>
+        <input type="radio" name="gender" value="Male">Male<br>
+        <input type="radio" name="gender" value="Female">Female<br>
+        <input type="radio" name="gender" value="Other">Other<br>
         Pets: <br>
-        <input type="checkbox">Cat<br>
-        <input type="checkbox">Dog<br>
+        <input type="checkbox" name="cat">Cat<br>
+        <input type="checkbox" name="dog">Dog<br>
         Cars: <br>
-        <select>
-            <option value="toyota">Toyota</option>
-            <option value="bmw">BMW</option>
-            <option value="benz">Benz</option>
+        <select name="cars">
+            <option value="toyota" name="toyota">Toyota</option>
+            <option value="bmw" name="bmw">BMW</option>
+            <option value="benz" name="benz">Benz</option>
         </select> <br>
         <input type="submit" value="Register">
         <input type="reset">
