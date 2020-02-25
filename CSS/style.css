@@ -1,5 +1,13 @@
+body {
+    background-image: url(background.jpeg);
+    background-size: cover;
+}
+
 h2 {
-    color:red;
+    color:#D46A6A;
+    text-align:center;
+    border: 5px solid rgba(255, 176, 170, 0.5);
+    cursor: pointer;
 }
 
 p {
@@ -8,4 +16,9 @@ p {
 
 p {
     color: green;
+}
+
+li {
+    list-style: none;
+    display:inline-block;
 }
