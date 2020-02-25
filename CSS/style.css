@@ -1,24 +1,58 @@
+* {
+    text-align:right;
+}
+
 body {
     background-image: url(background.jpeg);
     background-size: cover;
 }
 
-h2 {
+h2, p {
     color:#D46A6A;
-    text-align:center;
+    text-align:right;
     border: 5px solid rgba(255, 176, 170, 0.5);
     cursor: pointer;
 }
 
-p {
-    color: pink;
+h2 p {
+    color:#D46A6A;
+    text-align:center;
+    cursor:help;
+}
+
+h2 > p {
+    color:black;
+}
+
+h2 + span:hover {
+    color: gray;
 }
 
 p {
-    color: green;
+    color: pink !important;
+}
+
+p {
+    color: green; 
 }
 
 li {
     list-style: none;
     display:inline-block;
+}
+
+.webtext:last-child {
+    border: 5px dashed green;
+}
+
+.active {
+    color: red;
+}
+
+#div1 {
+    background:rgba(0, 255, 255, 0.2);
+}
+
+#div2 {
+    background:rgba(255, 0, 0, 0.2);
 }
