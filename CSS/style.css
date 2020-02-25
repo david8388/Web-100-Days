@@ -30,6 +30,12 @@ h2 + span:hover {
     color: gray;
 } 
 
+p {
+    color:#D46A6A;
+    text-align:center;
+    border: 5px solid rgba(255, 176, 170, 0.5);
+    cursor: pointer;
+}
 
 p {
     color: red;
@@ -38,7 +44,7 @@ p {
     line-height:20px;
     font-style: italic;
     font-weight: bold;
-    font-size:80%;
+    font-size:150%;
     font-family: 'Odibee Sans';
 }
 
@@ -62,4 +68,13 @@ li {
 
 #div2 {
     background:rgba(255, 0, 0, 0.2);
+}
+
+img {
+    float:left;
+}
+
+footer {
+    text-align: center; 
+    clear: both;
 }
