@@ -7,6 +7,7 @@ body {
     background-size: cover;
 }
 
+/* ---------------------------------------------------------------- 
 h2, p {
     color:#D46A6A;
     text-align:right;
@@ -23,25 +24,31 @@ h2 p {
 h2 > p {
     color:black;
 }
+*/
 
 h2 + span:hover {
     color: gray;
-}
+} 
+
 
 p {
-    color: pink !important;
+    color: red;
+    text-decoration: line-through;
+    text-transform: uppercase;
+    line-height:20px;
+    font-style: italic;
+    font-weight: bold;
+    font-size:80%;
+    font-family: 'Odibee Sans';
 }
 
-p {
-    color: green; 
-}
 
 li {
     list-style: none;
     display:inline-block;
 }
 
-.webtext:last-child {
+.webtext:first-child {
     border: 5px dashed green;
 }
 
