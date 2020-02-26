@@ -10,3 +10,16 @@ h2 {
     width: 33px;
     height: 55px;    
 }
+
+p {
+    font-size: 16px;
+}
+
+span {
+    font-size: 5rem; 
+    /* 5em = 20 * 5 =100(px) 
+      span is indside p, so 20px * 5 = 100px
+      
+      5rem is related to html tag. if html font-size set 10px, 5rem means 10 * 5 = 50rem.
+    */
+}
