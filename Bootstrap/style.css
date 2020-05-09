@@ -5,3 +5,8 @@
 .btn-danger:hover {
     background-color: orange;
 }
+
+.col {
+    background-color:grey;
+    border: 1px solid black;
+}
