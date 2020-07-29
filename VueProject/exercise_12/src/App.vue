@@ -3,16 +3,19 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld />
     <HelloWorld />
+    <Todo />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Todo from './components/Todos';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    Todo
   }
 }
 </script>
