@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <button @click="counter++">{{ counter }}</button>
+    <span v-if="seen">{{ message }}</span>
   </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      counter: 0
+      message: `You loaded this page on ${new Date().toLocaleString()}`,
+      seen: true
     }
   },
   // https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function
