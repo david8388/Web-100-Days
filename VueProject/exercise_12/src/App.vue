@@ -9,6 +9,7 @@
       v-bind:key="item.id"
       v-bind:todo="item"
     />
+    <templatex />
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import Todo from './components/Todos';
 import Greeting from './components/Greeting';
 import TodoItem from './components/TodoItem';
+import Templatex from './components/Template';
 
 export default {
   name: 'App',
@@ -24,7 +26,8 @@ export default {
     HelloWorld,
     Todo,
     Greeting,
-    TodoItem
+    TodoItem,
+    Templatex
   },
   data() {
     return {
