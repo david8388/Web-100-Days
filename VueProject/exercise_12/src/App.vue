@@ -2,20 +2,22 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld />
-    <HelloWorld />
     <Todo />
+    <Greeting />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Todo from './components/Todos';
+import Greeting from './components/Greeting';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
-    Todo
+    Todo,
+    Greeting
   }
 }
 </script>

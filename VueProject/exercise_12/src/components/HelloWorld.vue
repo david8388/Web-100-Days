@@ -11,12 +11,13 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
+      greeting: 'Hi Vue!',
       message: `You loaded this page on ${new Date().toLocaleString()}`,
       seen: true
     }
   },
   // https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function
-  // all instances of the component share the same data object, 
+  // all instances of the component share the same data object,
   /*data: function() {
     return data
   }*/
