@@ -3,6 +3,8 @@
     {{ greeting }}
     <button v-on:click="reverseMessage()">Reverse Message</button>
     <br>
+    <span v-once>This will never change: {{ greeting }}</span>
+    <br>
     {{ text }}
     <input v-model="text">
   </div>
