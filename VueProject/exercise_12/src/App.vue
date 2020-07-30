@@ -4,6 +4,11 @@
     <HelloWorld />
     <Todo />
     <Greeting />
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:key="item.id"
+      v-bind:todo="item"
+    />
   </div>
 </template>
 
@@ -11,13 +16,24 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Todo from './components/Todos';
 import Greeting from './components/Greeting';
+import TodoItem from './components/TodoItem';
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     Todo,
-    Greeting
+    Greeting,
+    TodoItem
+  },
+  data() {
+    return {
+      groceryList: [
+        { id: 0, text: 'Vegetables' },
+        { id: 1, text: 'Cheese' },
+        { id: 2, text: 'Whatever else humans are supposed to eat' }
+      ]
+    }
   }
 }
 </script>
