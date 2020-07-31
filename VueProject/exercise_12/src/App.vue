@@ -11,6 +11,7 @@
     />
     <templatex />
     <computed-watcher />
+    <class-style />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import Greeting from './components/Greeting';
 import TodoItem from './components/TodoItem';
 import Templatex from './components/Template';
 import ComputedWatcher from './components/ComputedWatcher';
+import ClassStyle from './components/ClassStyle';
 
 export default {
   name: 'App',
@@ -30,7 +32,8 @@ export default {
     Greeting,
     TodoItem,
     Templatex,
-    ComputedWatcher
+    ComputedWatcher,
+    ClassStyle
   },
   data() {
     return {
