@@ -10,6 +10,7 @@
       v-bind:todo="item"
     />
     <templatex />
+    <computed-watcher />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import Todo from './components/Todos';
 import Greeting from './components/Greeting';
 import TodoItem from './components/TodoItem';
 import Templatex from './components/Template';
+import ComputedWatcher from './components/ComputedWatcher';
 
 export default {
   name: 'App',
@@ -27,7 +29,8 @@ export default {
     Todo,
     Greeting,
     TodoItem,
-    Templatex
+    Templatex,
+    ComputedWatcher
   },
   data() {
     return {
