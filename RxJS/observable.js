@@ -1,3 +1,5 @@
+// Observer Pattern
+
 class Producer {
     constructor() {
         this.listeners = []
@@ -43,3 +45,52 @@ producer.notify('This is a test message')
 // The following code will cause an error
 // const listener3 = 10
 // producer.addListener(listener3) 
+
+
+// Iterator Pattern
+
+class Iterator {
+    constructor(array) {
+        this._arr = array
+        this._index = 0
+    }
+
+    next() {
+        /*
+        const isCompleted = this._arr.length === this._index ? true : false
+        const output = {
+            value: isCompleted ? undefined : this._arr[this._index],
+            done: isCompleted
+        }
+        this._index++
+        return output
+        */
+        return this._arr.length === this._index ?
+        { value: undefined, done: true } : 
+            { value: this._arr[this._index++], done: false }
+    }
+
+    map(callback) {
+        const newIt = new Iterator(this._arr)
+        return {
+            next() {
+                const { done, value } = newIt.next()
+                return { 
+                    value: done ? undefined : callback(value),
+                    done
+                }
+            }
+        }
+    }
+
+}
+
+
+const iterator = new Iterator([1,2])
+const newIterator = iterator.map(value => value + 3)
+console.log(iterator.next())
+console.log(iterator.next())
+console.log(iterator.next())
+console.log(newIterator.next());
+console.log(newIterator.next());
+console.log(newIterator.next());
