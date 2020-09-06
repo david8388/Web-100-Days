@@ -56,15 +56,6 @@ class Iterator {
     }
 
     next() {
-        /*
-        const isCompleted = this._arr.length === this._index ? true : false
-        const output = {
-            value: isCompleted ? undefined : this._arr[this._index],
-            done: isCompleted
-        }
-        this._index++
-        return output
-        */
         return this._arr.length === this._index ?
         { value: undefined, done: true } : 
             { value: this._arr[this._index++], done: false }
